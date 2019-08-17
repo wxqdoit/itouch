@@ -1,0 +1,30 @@
+{
+  "name": "itouch",
+  "version": "1.0.0",
+  "description": "naruto hitokoto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxqdoit/itouch.git"
+  },
+  "author": "wxqdoit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wxqdoit/itouch/issues"
+  },
+  "homepage": "https://github.com/wxqdoit/itouch#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.15.0",
+    "serve-favicon": "^2.5.0"
+  }
+}

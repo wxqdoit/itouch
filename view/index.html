@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        body {
+            width: 100%;
+            min-height: 100%;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+        }
+        #app{
+            position: absolute;
+            width: 100%;;
+            height:100%;;
+        }
+        .main-background {
+            -webkit-filter: brightness(0.6);
+            -ms-filter: brightness(0.6);
+            -moz-filter: brightness(0.6);
+            filter: brightness(0.6);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .hitokoto-fullpage {
+            position: relative;
+            color: white;
+            z-index: 1;
+            margin-top: 35vh;
+            margin-bottom: 35vh;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, Arial, sans-serif;
+        }
+
+        .hitokoto-fullpage .bracket.left {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .hitokoto-fullpage .word {
+            font-size: 2.3rem;
+            text-align: center;
+            line-height: 50px;
+            word-break: normal;
+            margin: 0;
+            padding: 15px 50px;
+        }
+
+        .hitokoto-fullpage .bracket.right {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .hitokoto-fullpage .bracket.right {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        @media screen and (min-width: 600px) {
+            .hitokoto-fullpage {
+                width: 55%;
+            }
+        }
+
+        @media screen and (max-width: 599px) {
+            .hitokoto-fullpage {
+                width: 95%;
+            }
+        }
+
+        .hitokoto-fullpage .bracket {
+            font-size: 48px;
+        }
+
+        .hitokoto-fullpage .author {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            float: right;
+            margin-top: 40px;
+        }
+
+        .mdl-navigation {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 64px;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            box-sizing: border-box;
+        }
+
+        .mdl-layout__header-row .mdl-navigation__link {
+            display: block;
+            color: rgb(255, 255, 255);
+            line-height: 64px;
+            padding: 0 24px;
+        }
+
+        .mdl-navigation__link {
+            display: block;
+            color: rgb(255, 255, 255);
+            line-height: 64px;
+            padding: 0 24px;
+            text-decoration: none;
+            margin: 0;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0;
+            opacity: .87;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-if="itouch">
+    <div class="main-background" style="background-image:url(<%=data.img_url %>)"></div>
+    <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="#">API</a>
+        <a class="mdl-navigation__link" href="#">添加</a>
+        <a class="mdl-navigation__link" href="#">关于...</a>
+    </nav>
+    <div id="hitokoto" class="hitokoto-fullpage">
+        <div class="bracket left">“</div>
+        <div class="word" id="hitokoto_text" v-text="itouch.i_touch"></div>
+        <div class="bracket right">”</div>
+        <div class="author" id="hitokoto_author" v-text="'——&emsp;'+itouch.from"></div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            itouch:null
+        },
+        mounted() {
+            this.getData()
+            var arr = JSON.parse('<%- JSON.stringify(data) %>');
+            // console.log(arr);
+        },
+        methods:{
+            getData(){
+                axios.get('http://localhost/api/itouch').then(res=>{
+                    console.log(res);
+                    if(res.data.code === 200){
+                        this.itouch = res.data.data
+                    }
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>
