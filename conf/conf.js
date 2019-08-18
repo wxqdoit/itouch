@@ -65,12 +65,7 @@ app.use("/api",userAPI);
 
 // 监听404错误，并转向错误处理
 app.use(function(req, res, next) {
-    let err = new Error('Not Found');
-    err.status = 404;
-    res.render('view/'+err.status, {
-        status: err.status,
-        message:err
-    });
+    next()
 });
 
 

@@ -7,20 +7,19 @@ let ITouchService = require('../service/iTouchService');
 let iTouchService = new ITouchService();
 
 /* GET home page. */
-router.get('/',async function(req, res) {
-
-
-        let i = await iTouchService.getITouchByRandom();
-        res.render('index', {
-            data:i.data
-        });
-
-
-
+router.get('/', async function (req, res) {
+    let i = await iTouchService.getITouchByRandom();
+    res.render('index', {
+        data: i.data
+    });
 });
 
-router.get('/index',async function(req, res) {
+router.get('/index', async function (req, res) {
     res.render('index', {});
+});
+
+router.get('/about', async function (req, res) {
+    res.render('about', {});
 });
 
 module.exports = router;

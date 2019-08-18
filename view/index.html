@@ -11,8 +11,9 @@
             padding: 0;
             margin: 0;
             position: absolute;
+            background-color: #9a9a9a;
         }
-        #app{
+        #app,.container{
             position: absolute;
             width: 100%;;
             height:100%;;
@@ -31,7 +32,7 @@
             background-position: center;
         }
 
-        .hitokoto-fullpage {
+        .naruto-fullpage {
             position: relative;
             color: white;
             z-index: 1;
@@ -42,13 +43,13 @@
             font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, Arial, sans-serif;
         }
 
-        .hitokoto-fullpage .bracket.left {
+        .naruto-fullpage .n-bracket.left {
             position: absolute;
             left: 0;
             top: 0;
         }
 
-        .hitokoto-fullpage .word {
+        .naruto-fullpage .word {
             font-size: 2.3rem;
             text-align: center;
             line-height: 50px;
@@ -57,45 +58,42 @@
             padding: 15px 50px;
         }
 
-        .hitokoto-fullpage .bracket.right {
+        .naruto-fullpage .n-bracket.right {
             position: absolute;
             right: 0;
             bottom: 0;
         }
 
-        .hitokoto-fullpage .bracket.right {
+        .naruto-fullpage .n-bracket.right {
             position: absolute;
             right: 0;
             bottom: 0;
         }
 
         @media screen and (min-width: 600px) {
-            .hitokoto-fullpage {
+            .naruto-fullpage {
                 width: 55%;
             }
         }
 
         @media screen and (max-width: 599px) {
-            .hitokoto-fullpage {
+            .naruto-fullpage {
                 width: 95%;
             }
         }
 
-        .hitokoto-fullpage .bracket {
+        .naruto-fullpage .n-bracket {
             font-size: 48px;
         }
 
-        .hitokoto-fullpage .author {
+        .naruto-fullpage .author {
             font-size: 20px;
             color: rgba(255, 255, 255, 0.8);
             float: right;
             margin-top: 40px;
         }
 
-        .mdl-navigation {
-            position: absolute;
-            top: 0;
-            right: 0;
+        .n-navigation {
             height: 64px;
             -webkit-flex-direction: row;
             -ms-flex-direction: row;
@@ -112,14 +110,15 @@
             box-sizing: border-box;
         }
 
-        .mdl-layout__header-row .mdl-navigation__link {
+        .layout-header-row .n-navigation-ink {
             display: block;
             color: rgb(255, 255, 255);
             line-height: 64px;
+            height: 64px;
             padding: 0 24px;
         }
 
-        .mdl-navigation__link {
+        .n-navigation-ink {
             display: block;
             color: rgb(255, 255, 255);
             line-height: 64px;
@@ -131,44 +130,112 @@
             letter-spacing: 0;
             opacity: .87;
         }
+        .n-navigation .logo{
+            height: 32px;
+            display: block;
+        }
+        .float-l{
+            float: left;
+        }
+        .float-r{
+            float: right;
+        }
     </style>
 </head>
 <body>
 <div id="app" v-if="itouch">
-    <div class="main-background" style="background-image:url(<%=data.img_url %>)"></div>
-    <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="#">API</a>
-        <a class="mdl-navigation__link" href="#">添加</a>
-        <a class="mdl-navigation__link" href="#">关于...</a>
-    </nav>
-    <div id="hitokoto" class="hitokoto-fullpage">
-        <div class="bracket left">“</div>
-        <div class="word" id="hitokoto_text" v-text="itouch.i_touch"></div>
-        <div class="bracket right">”</div>
-        <div class="author" id="hitokoto_author" v-text="'——&emsp;'+itouch.from"></div>
-    </div>
+    <div class="container">
+        <div class="main-background" :style="'background-image:url('+itouch.img_url+')'"></div>
+        <nav class="n-navigation float-l">
+            <span class="n-navigation-ink" id="logo"><img  class="logo" src="/static/images/icon/logo.png" alt=""></span>
+        </nav>
+        <nav class="n-navigation float-r">
+            <a class="n-navigation-ink" href="javascript:void(0)" @click = 'handleAdd'>添加</a>
+            <a class="n-navigation-ink" href="/about">关于...</a>
+        </nav>
+        <div id="naruto" class="naruto-fullpage">
+            <div id="n-text">
+                <div class="n-bracket left">“</div>
+                <div class="word" id="naruto_text" v-text="itouch.i_touch"></div>
+                <div class="n-bracket right">”</div>
+            </div>
 
+            <div class="author" id="naruto_author" v-text="'——&emsp;'+itouch.from"></div>
+        </div>
+    </div>
     <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://itachi-1252754215.cos.ap-chengdu.myqcloud.com/dynamics.min.js"></script>
 </div>
 <script>
     new Vue({
         el:"#app",
         data:{
-            itouch:null
+            itouch:null,
+            logo : null,
+            naruto:null
         },
         mounted() {
-            this.getData()
-            var arr = JSON.parse('<%- JSON.stringify(data) %>');
-            // console.log(arr);
+            this.getData();
+            setInterval(()=>{
+                this.getData();
+                this.logoAnimate()
+            },8000)
+
         },
         methods:{
             getData(){
                 axios.get('http://localhost/api/itouch').then(res=>{
-                    console.log(res);
                     if(res.data.code === 200){
-                        this.itouch = res.data.data
+                        this.itouch = res.data.data;
+                        this.$nextTick(()=>{
+                            this.logo = document.querySelector('#logo');
+                            this.naruto = document.querySelector("#n-text");
+                            this.narutoAnimate();
+                            this.narutoAnimate();
+                        });
                     }
+                })
+            },
+            handleAdd(){
+                swal({
+                    text: "Hello world!",
+                });
+            },
+            narutoAnimate(){
+                dynamics.animate(this.naruto, {
+                    rotateZ: -45,
+                    scale: 1.05,
+                    opacity: 0.5
+                }, {
+                    type: dynamics.bounce,
+                    duration: 1000
+                })
+            },
+            logoAnimate(){
+                this.horizontalBounce()
+            },
+            horizontalBounce() {
+                // The bounce animation will return to the original state
+                // In this case, it will go from 0deg to -45deg to 0deg
+                dynamics.animate(this.logo, {
+                    rotateZ: -20
+                }, {
+                    type: dynamics.bounce,
+                    duration: 1000,
+                    complete: this.verticalBounce
+                })
+            },
+            verticalBounce() {
+                // We animate the two elements (svg, pin) independently
+                // Use the delay option to delay your animations
+                dynamics.animate(this.logo, {
+                    translateY: -30
+                }, {
+                    type: dynamics.forceWithGravity,
+                    duration: 500,
+                    friction:2000,
                 })
             }
         }
