@@ -10,14 +10,14 @@
 
 ## 声明
 
-- itouch项目由 wxqdoit 设计，编码，运营。
+- itouch项目由 [wxqdoit](https://weibo.com/u/3266694004) 设计，编码，运营。
 
 - 本项目由Node.js搭建的开源项目,托管于https://github.com/wxqdoit/itouch
 
 ## 致谢
 
-- 感谢，hitokoto 提供设计灵感，本项目借鉴了部分美术风格。
+- 感谢，[hitokoto](https://hitokoto.cn/) 提供设计灵感，本项目借鉴了部分美术风格。
 
-- 感谢，腾讯云 提供CDN服务。
+- 感谢，腾讯云提供CDN服务。
 
 - 感谢，不爆破本站的各位大佬！
