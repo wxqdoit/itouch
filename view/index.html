@@ -17,6 +17,7 @@
             position: absolute;
             width: 100%;;
             height:100%;;
+            overflow: hidden;
         }
         .main-background {
             -webkit-filter: brightness(0.6);
@@ -140,6 +141,356 @@
         .float-r{
             float: right;
         }
+.inputAnimate-item{
+    margin-bottom: 20px;
+}
+        .alertForm {
+           
+            background: #fff;
+            position: relative;
+            padding: 16px 0 5px 0;
+            border-radius: 6px;
+        }
+        .alertForm input {
+            width: 100%;
+            border: 0;
+            outline: none;
+            line-height: 20px;
+            font-size: 16px;
+            padding: 9px 40px 0 16px;
+            font-family: inherit;
+            background: none;
+            color: #151924;
+        }
+        .alertForm input:valid + label, .alertForm input:focus + label {
+            -webkit-transform: translate(0, -10px) scale(0.72);
+            transform: translate(0, -10px) scale(0.72);
+        }
+        .alertForm input:valid + label + .unlock, .alertForm input:focus + label + .unlock {
+            opacity: 1;
+        }
+        .alertForm label {
+            position: absolute;
+            z-index: 1;
+            left: 16px;
+            top: 50%;
+            line-height: 24px;
+            font-size: 16px;
+            margin: -12px 0 0 0;
+            letter-spacing: 2px;
+            cursor: text;
+            -webkit-transform-origin: top left;
+            transform-origin: top left;
+            transition: all .3s ease;
+        }
+        .alertForm .unlock {
+            position: absolute;
+            z-index: 2;
+            stroke: none;
+            fill: #3F4656;
+            display: block;
+            width: 12px;
+            height: 16px;
+            right: 16px;
+            top: 50%;
+            opacity: .2;
+            cursor: pointer;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            transition: opacity .4s ease;
+        }
+        .alertForm .error {
+            position: absolute;
+            right: 0;
+            bottom: 4px;
+            display: block;
+            width: 16px;
+            height: 14px;
+            opacity: 0;
+            stroke: none;
+            z-index: 5;
+            fill: #EB3E60;
+            -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+            transition: all .3s ease;
+        }
+        .alertForm:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-style: solid;
+            border-width: 0 0 0 0;
+            z-index: 4;
+            border-color: #fff #EDF0F9;
+            transition: all .3s ease .35s;
+        }
+        .alertForm.false {
+            -webkit-animation: shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            animation: shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        }
+        .alertForm.false:before {
+            border-width: 38px 32px 0 0;
+            border-color: #C9D5EA #EDF0F9;
+            border-radius: 6px 0 0 0;
+            transition-delay: 0s;
+        }
+        .alertForm.false .error {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            transition: opacity 0.3s ease 0.45s, -webkit-transform 0.4s cubic-bezier(0.87, -0.41, 0.19, 1.44) 0.35s;
+            transition: transform 0.4s cubic-bezier(0.87, -0.41, 0.19, 1.44) 0.35s, opacity 0.3s ease 0.45s;
+            transition: transform 0.4s cubic-bezier(0.87, -0.41, 0.19, 1.44) 0.35s, opacity 0.3s ease 0.45s, -webkit-transform 0.4s cubic-bezier(0.87, -0.41, 0.19, 1.44) 0.35s;
+        }
+
+        @-webkit-keyframes shake {
+            10%, 90% {
+                -webkit-transform: translate3d(-1px, 0, 0);
+                transform: translate3d(-1px, 0, 0);
+            }
+            20%, 80% {
+                -webkit-transform: translate3d(2px, 0, 0);
+                transform: translate3d(2px, 0, 0);
+            }
+            30%, 50%, 70% {
+                -webkit-transform: translate3d(-4px, 0, 0);
+                transform: translate3d(-4px, 0, 0);
+            }
+            40%, 60% {
+                -webkit-transform: translate3d(4px, 0, 0);
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+
+        @keyframes shake {
+            10%, 90% {
+                -webkit-transform: translate3d(-1px, 0, 0);
+                transform: translate3d(-1px, 0, 0);
+            }
+            20%, 80% {
+                -webkit-transform: translate3d(2px, 0, 0);
+                transform: translate3d(2px, 0, 0);
+            }
+            30%, 50%, 70% {
+                -webkit-transform: translate3d(-4px, 0, 0);
+                transform: translate3d(-4px, 0, 0);
+            }
+            40%, 60% {
+                -webkit-transform: translate3d(4px, 0, 0);
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+        .activate {
+            display: block;
+            background: #5628EE;
+            box-shadow: 0 4px 20px rgba(86, 40, 238, 0.15);
+            line-height: 20px;
+            padding: 12px ;
+            border-radius: 22px;
+            color: #fff;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: background .3s ease, box-shadow .3s ease, -webkit-transform .2s ease;
+            transition: transform .2s ease, background .3s ease, box-shadow .3s ease;
+            transition: transform .2s ease, background .3s ease, box-shadow .3s ease, -webkit-transform .2s ease;
+        }
+        .activate span {
+            display: inline-block;
+            vertical-align: top;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 0 4px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .activate span:before {
+            content: '';
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #5628EE;
+            border-radius: 50%;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            transition: background .3s ease, -webkit-transform .3s ease;
+            transition: transform .3s ease, background .3s ease;
+            transition: transform .3s ease, background .3s ease, -webkit-transform .3s ease;
+        }
+        .activate span svg {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            left: 50%;
+            top: 50%;
+            margin: -6px 0 0 -6px;
+            z-index: 1;
+        }
+        .activate span svg:nth-child(1) {
+            width: 20px;
+            height: 20px;
+            top: 0;
+            left: 0;
+            fill: none;
+            margin: 0;
+            stroke: #fff;
+            stroke-width: 1px;
+            stroke-dashoffset: 94.248;
+            stroke-dasharray: 47.124;
+        }
+        .activate span svg:nth-child(2) {
+            fill: #5628EE;
+            transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .activate span svg:nth-child(3) {
+            fill: #5628EE;
+            -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease, -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .activate:hover {
+            box-shadow: 0 8px 24px rgba(86, 40, 238, 0.15);
+        }
+        .activate:hover span svg:nth-child(2) {
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        .activate:hover span svg:nth-child(3) {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+        .activate:active {
+            -webkit-transform: scale(0.94);
+            transform: scale(0.94);
+            box-shadow: 0 4px 16px rgba(63, 220, 117, 0.18);
+        }
+        .activate.loading span {
+            background: none;
+            transition: background .1s ease .3s;
+        }
+        .activate.loading span:before {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        .activate.loading span svg:nth-child(1) {
+            -webkit-animation: turn 1.6s linear infinite forwards, path 1.6s linear infinite forwards;
+            animation: turn 1.6s linear infinite forwards, path 1.6s linear infinite forwards;
+        }
+        .activate.loading span svg:nth-child(2) {
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        .activate.loading span svg:nth-child(3) {
+            opacity: 0;
+            -webkit-transform: translateY(0) scale(0.6);
+            transform: translateY(0) scale(0.6);
+        }
+        .activate.loading ul {
+            -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+        }
+        .activate.loading.done {
+            background: #00c745;
+            box-shadow: 0 4px 20px rgba(63, 220, 117, 0.15);
+        }
+        .activate.loading.done span {
+            background: #fff;
+            transition: background .1s ease 0s;
+        }
+        .activate.loading.done span:before {
+            background: #00c745;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        .activate.loading.done span svg:nth-child(1) {
+            -webkit-animation: none;
+            animation: none;
+        }
+        .activate.loading.done span svg:nth-child(3) {
+            fill: #00c745;
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            transition: opacity 0.4s ease 0.25s, -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s, opacity 0.4s ease 0.25s;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s, opacity 0.4s ease 0.25s, -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
+        }
+        .activate.loading.done ul {
+            -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+        }
+        .activate ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            height: 20px;
+            width: 60%;
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            transition: -webkit-transform .3s ease;
+            transition: transform .3s ease;
+            transition: transform .3s ease, -webkit-transform .3s ease;
+        }
+        .activate ul li {
+            --rotateX: 0deg;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            -webkit-transform: rotateX(var(--rotateX)) translateZ(10px);
+            transform: rotateX(var(--rotateX)) translateZ(10px);
+        }
+        .activate ul li:nth-child(2) {
+            --rotateX: -90deg;
+        }
+        .activate ul li:nth-child(3) {
+            --rotateX: -180deg;
+        }
+
+        @-webkit-keyframes turn {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes turn {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        @-webkit-keyframes path {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes path {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        .swal2-popup{
+            background-color: rgba(255,255,255,0.8)!important;
+        }
+
     </style>
 </head>
 <body>
@@ -164,8 +515,9 @@
         </div>
     </div>
     <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
-    <script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://itachi-1252754215.cos.ap-chengdu.myqcloud.com/dynamics.min.js"></script>
 </div>
 <script>
@@ -185,6 +537,17 @@
 
         },
         methods:{
+            resizeForText(self, span, text) {
+                text = (!text) ? ' ' : text;
+                span.text(text);
+                self.css('--offsetLeft', span.width() + 3);
+                self.css('--offsetLeftScale', span.width() + 19);
+            },
+            ani(){
+
+
+
+            },
             getData(){
                 axios.get('http://localhost/api/itouch').then(res=>{
                     if(res.data.code === 200){
@@ -198,10 +561,102 @@
                     }
                 })
             },
-            handleAdd(){
-                swal({
-                    text: "Hello world!",
-                });
+            async handleAdd(){
+                let that = this
+                const { value: formValues } = await Swal.fire({
+                    title: '添加',
+                    html:`
+<div class="inputAnimate-item">
+<div class="alertForm">
+    <input id="alertForm1" type="text" required>
+    <label for="alertForm1">一个角色</label>
+    <svg class="unlock" viewBox="0 0 12 16">
+        <path d="M6,2 C6.6,2 7.1,2.2 7.5,2.7 L8.2,3.4 L9.7,2.1 L9,1.3 C8.2,0.5 7.1,0 6,0 C3.8,0 2,1.8 2,4 L2,5.5 C0.8,6.6 0,8.2 0,10 C0,13.3 2.7,16 6,16 C9.3,16 12,13.3 12,10 C12,6.7 9.3,4 6,4 C5.3,4 4.6,4.1 4,4.4 L4,4 C4,2.9 4.9,2 6,2 Z M6,7 C7.1,7 8,7.9 8,9 C8,9.7 7.6,10.4 7,10.7 L7,13 L5,13 L5,10.7 C4.4,10.4 4,9.7 4,9 C4,7.9 4.9,7 6,7 Z"></path>
+    </svg>
+    <svg class="error" viewBox="0 0 16 14">
+        <path d="M15.216,12.529 L8.882,0.654 C8.506,-0.052 7.494,-0.052 7.117,0.654 L0.784,12.529 C0.429,13.195 0.912,14 1.667,14 L14.334,14 C15.088,14 15.571,13.195 15.216,12.529 Z M8,12 C7.448,12 7,11.552 7,11 C7,10.448 7.448,10 8,10 C8.552,10 9,10.448 9,11 C9,11.552 8.552,12 8,12 Z M9,9 L7,9 L7,5 L9,5 L9,9 Z"></path>
+    </svg>
+</div>
+</div>
+<div class="inputAnimate-item">
+<div class="alertForm">
+    <input id="alertForm1" type="text" required>
+    <label for="alertForm1">一句台词</label>
+    <svg class="unlock" viewBox="0 0 12 16">
+        <path d="M6,2 C6.6,2 7.1,2.2 7.5,2.7 L8.2,3.4 L9.7,2.1 L9,1.3 C8.2,0.5 7.1,0 6,0 C3.8,0 2,1.8 2,4 L2,5.5 C0.8,6.6 0,8.2 0,10 C0,13.3 2.7,16 6,16 C9.3,16 12,13.3 12,10 C12,6.7 9.3,4 6,4 C5.3,4 4.6,4.1 4,4.4 L4,4 C4,2.9 4.9,2 6,2 Z M6,7 C7.1,7 8,7.9 8,9 C8,9.7 7.6,10.4 7,10.7 L7,13 L5,13 L5,10.7 C4.4,10.4 4,9.7 4,9 C4,7.9 4.9,7 6,7 Z"></path>
+    </svg>
+    <svg class="error" viewBox="0 0 16 14">
+        <path d="M15.216,12.529 L8.882,0.654 C8.506,-0.052 7.494,-0.052 7.117,0.654 L0.784,12.529 C0.429,13.195 0.912,14 1.667,14 L14.334,14 C15.088,14 15.571,13.195 15.216,12.529 Z M8,12 C7.448,12 7,11.552 7,11 C7,10.448 7.448,10 8,10 C8.552,10 9,10.448 9,11 C9,11.552 8.552,12 8,12 Z M9,9 L7,9 L7,5 L9,5 L9,9 Z"></path>
+    </svg>
+</div>
+</div>
+<div class="inputAnimate-item">
+<a class="activate">
+    <span>
+        <svg>
+            <use xlink:href="#circle">
+        </svg>
+        <svg>
+            <use xlink:href="#arrow">
+        </svg>
+        <svg>
+            <use xlink:href="#check">
+        </svg>
+    </span>
+    <ul>
+        <li>选择文件</li>
+        <li>上传中...</li>
+        <li>上传完成</li>
+    </ul>
+</a>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="circle">
+        <circle cx="8" cy="8" r="7.5"></circle>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" id="arrow">
+        <path d="M2.7008908,5.37931459 L2.7008908,5.37931459 C2.9224607,5.60207651 3.2826628,5.60304283 3.50542472,5.38147293 C3.52232305,5.36466502 3.53814843,5.34681177 3.55280728,5.32801875 L5.34805194,3.02646954 L5.34805194,10.3480519 C5.34805194,10.7081129 5.63993903,11 6,11 L6,11 C6.36006097,11 6.65194806,10.7081129 6.65194806,10.3480519 L6.65194806,3.02646954 L8.44719272,5.32801875 C8.6404327,5.57575732 8.99791646,5.61993715 9.24565503,5.42669716 C9.26444805,5.41203831 9.28230129,5.39621293 9.2991092,5.37931459 L9.2991092,5.37931459 C9.55605877,5.12098268 9.57132199,4.70855346 9.33416991,4.43193577 L6.75918715,1.42843795 C6.39972025,1.00915046 5.76841509,0.960656296 5.34912761,1.32012319 C5.31030645,1.35340566 5.27409532,1.38961679 5.24081285,1.42843795 L2.66583009,4.43193577 C2.42867801,4.70855346 2.44394123,5.12098268 2.7008908,5.37931459 Z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" id="check">
+            <path id="test" d="M4.76499011,6.7673683 L8.2641848,3.26100386 C8.61147835,2.91299871 9.15190114,2.91299871 9.49919469,3.26100386 C9.51164115,3.27347582 9.52370806,3.28637357 9.53537662,3.29967699 C9.83511755,3.64141434 9.81891834,4.17816549 9.49919469,4.49854425 L5.18121271,8.82537365 C4.94885368,9.05820878 4.58112654,9.05820878 4.34876751,8.82537365 L2.50080531,6.97362503 C2.48835885,6.96115307 2.47629194,6.94825532 2.46462338,6.93495189 C2.16488245,6.59321455 2.18108166,6.0564634 2.50080531,5.73608464 C2.84809886,5.3880795 3.38852165,5.3880795 3.7358152,5.73608464 L4.76499011,6.7673683 Z"></path>
+    </symbol>
+    </svg>
+</div>`
+                   ,
+                    onOpen(){
+                        $('.alertForm .unlock').click(function(e) {
+                            var alertFormDiv = $(this).parent();
+                            if(alertFormDiv.children('input').val()) {
+                                alertFormDiv.addClass('false');
+                                setTimeout(function() {
+                                    alertFormDiv.removeClass('false');
+                                }, 2500);
+                            }
+                        });
+                        $('.activate').on('click touch', function(e) {
+                            var self = $(this);
+                            if(!self.hasClass('loading')) {
+                                self.addClass('loading');
+                                setTimeout(function() {
+                                    self.addClass('done');
+                                    setTimeout(function() {
+                                        //self.removeClass('loading done');
+                                    }, 1600);
+                                }, 3200);
+                            }
+                        });
+                    },
+                    focusConfirm: false,
+                    preConfirm: () => {
+                        return [
+                            document.getElementById('i_touch').value,
+                            document.getElementById('from').value
+                        ]
+                    }
+                })
+
+                if (formValues) {
+                    Swal.fire(JSON.stringify(formValues))
+                }
             },
             narutoAnimate(){
                 dynamics.animate(this.naruto, {
@@ -217,8 +672,6 @@
                 this.horizontalBounce()
             },
             horizontalBounce() {
-                // The bounce animation will return to the original state
-                // In this case, it will go from 0deg to -45deg to 0deg
                 dynamics.animate(this.logo, {
                     rotateZ: -20
                 }, {
@@ -228,8 +681,6 @@
                 })
             },
             verticalBounce() {
-                // We animate the two elements (svg, pin) independently
-                // Use the delay option to delay your animations
                 dynamics.animate(this.logo, {
                     translateY: -30
                 }, {
