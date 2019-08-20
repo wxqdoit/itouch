@@ -9,8 +9,8 @@ const db = require("./dbFactory");
  */
 const i_touch = db.define('i_touch',{
     id: {type : Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
-    i_touch:{type : Sequelize.STRING,unique:true},
-    from:{type:Sequelize.STRING,unique:true},
+    i_touch:{type : Sequelize.STRING},
+    from:{type:Sequelize.STRING},
     img_url:{type:Sequelize.STRING},
     create_time:{type:Sequelize.STRING},
     type:{type:Sequelize.STRING},

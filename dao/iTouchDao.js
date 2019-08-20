@@ -9,7 +9,7 @@ module.exports = class ITouchDao {
         return tables.i_touch.findOne({order:tables.i_touch.sequelize.random()})
     };
 
-    create(i_touch) {
+    createITouch(i_touch) {
         return tables.i_touch.create(i_touch)
     };
 

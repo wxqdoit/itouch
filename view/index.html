@@ -13,12 +13,14 @@
             position: absolute;
             background-color: #9a9a9a;
         }
-        #app,.container{
+
+        #app, .container {
             position: absolute;
             width: 100%;;
-            height:100%;;
+            height: 100%;;
             overflow: hidden;
         }
+
         .main-background {
             -webkit-filter: brightness(0.6);
             -ms-filter: brightness(0.6);
@@ -131,26 +133,32 @@
             letter-spacing: 0;
             opacity: .87;
         }
-        .n-navigation .logo{
+
+        .n-navigation .logo {
             height: 32px;
             display: block;
         }
-        .float-l{
+
+        .float-l {
             float: left;
         }
-        .float-r{
+
+        .float-r {
             float: right;
         }
-.inputAnimate-item{
-    margin-bottom: 20px;
-}
+
+        .inputAnimate-item {
+            margin-bottom: 20px;
+        }
+
         .alertForm {
-           
+
             background: #fff;
             position: relative;
             padding: 16px 0 5px 0;
             border-radius: 6px;
         }
+
         .alertForm input {
             width: 100%;
             border: 0;
@@ -162,13 +170,16 @@
             background: none;
             color: #151924;
         }
+
         .alertForm input:valid + label, .alertForm input:focus + label {
             -webkit-transform: translate(0, -10px) scale(0.72);
             transform: translate(0, -10px) scale(0.72);
         }
+
         .alertForm input:valid + label + .unlock, .alertForm input:focus + label + .unlock {
             opacity: 1;
         }
+
         .alertForm label {
             position: absolute;
             z-index: 1;
@@ -183,6 +194,7 @@
             transform-origin: top left;
             transition: all .3s ease;
         }
+
         .alertForm .unlock {
             position: absolute;
             z-index: 2;
@@ -199,6 +211,7 @@
             transform: translate(0, -50%);
             transition: opacity .4s ease;
         }
+
         .alertForm .error {
             position: absolute;
             right: 0;
@@ -214,6 +227,7 @@
             transform: scale(0.4);
             transition: all .3s ease;
         }
+
         .alertForm:before {
             content: '';
             position: absolute;
@@ -225,16 +239,24 @@
             border-color: #fff #EDF0F9;
             transition: all .3s ease .35s;
         }
+
+        .up-tip {
+            font-size: 14px;
+            color: #03007d;
+        }
+
         .alertForm.false {
             -webkit-animation: shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
             animation: shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
         }
+
         .alertForm.false:before {
             border-width: 38px 32px 0 0;
             border-color: #C9D5EA #EDF0F9;
             border-radius: 6px 0 0 0;
             transition-delay: 0s;
         }
+
         .alertForm.false .error {
             opacity: 1;
             -webkit-transform: scale(1);
@@ -281,12 +303,13 @@
                 transform: translate3d(4px, 0, 0);
             }
         }
+
         .activate {
             display: block;
             background: #5628EE;
             box-shadow: 0 4px 20px rgba(86, 40, 238, 0.15);
             line-height: 20px;
-            padding: 12px ;
+            padding: 12px;
             border-radius: 22px;
             color: #fff;
             font-weight: 500;
@@ -296,6 +319,7 @@
             transition: transform .2s ease, background .3s ease, box-shadow .3s ease;
             transition: transform .2s ease, background .3s ease, box-shadow .3s ease, -webkit-transform .2s ease;
         }
+
         .activate span {
             display: inline-block;
             vertical-align: top;
@@ -307,6 +331,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .activate span:before {
             content: '';
             left: 0;
@@ -322,6 +347,7 @@
             transition: transform .3s ease, background .3s ease;
             transition: transform .3s ease, background .3s ease, -webkit-transform .3s ease;
         }
+
         .activate span svg {
             position: absolute;
             width: 12px;
@@ -331,6 +357,7 @@
             margin: -6px 0 0 -6px;
             z-index: 1;
         }
+
         .activate span svg:nth-child(1) {
             width: 20px;
             height: 20px;
@@ -343,12 +370,14 @@
             stroke-dashoffset: 94.248;
             stroke-dasharray: 47.124;
         }
+
         .activate span svg:nth-child(2) {
             fill: #5628EE;
             transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         .activate span svg:nth-child(3) {
             fill: #5628EE;
             -webkit-transform: translateY(20px);
@@ -357,64 +386,74 @@
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease, -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         .activate:hover {
             box-shadow: 0 8px 24px rgba(86, 40, 238, 0.15);
         }
+
         .activate:hover span svg:nth-child(2) {
             -webkit-transform: translateY(-20px);
             transform: translateY(-20px);
         }
+
         .activate:hover span svg:nth-child(3) {
             -webkit-transform: translateY(0);
             transform: translateY(0);
         }
+
         .activate:active {
             -webkit-transform: scale(0.94);
             transform: scale(0.94);
             box-shadow: 0 4px 16px rgba(63, 220, 117, 0.18);
         }
+
         .activate.loading span {
             background: none;
             transition: background .1s ease .3s;
         }
+
         .activate.loading span:before {
             -webkit-transform: scale(1);
             transform: scale(1);
         }
+
         .activate.loading span svg:nth-child(1) {
             -webkit-animation: turn 1.6s linear infinite forwards, path 1.6s linear infinite forwards;
             animation: turn 1.6s linear infinite forwards, path 1.6s linear infinite forwards;
         }
+
         .activate.loading span svg:nth-child(2) {
             -webkit-transform: translateY(-20px);
             transform: translateY(-20px);
         }
+
         .activate.loading span svg:nth-child(3) {
             opacity: 0;
             -webkit-transform: translateY(0) scale(0.6);
             transform: translateY(0) scale(0.6);
         }
-        .activate.loading ul {
-            -webkit-transform: rotateX(90deg);
-            transform: rotateX(90deg);
-        }
+
         .activate.loading.done {
             background: #00c745;
             box-shadow: 0 4px 20px rgba(63, 220, 117, 0.15);
         }
+
         .activate.loading.done span {
             background: #fff;
             transition: background .1s ease 0s;
         }
+
         .activate.loading.done span:before {
             background: #00c745;
             -webkit-transform: scale(0);
             transform: scale(0);
         }
+
         .activate.loading.done span svg:nth-child(1) {
             -webkit-animation: none;
             animation: none;
         }
+
         .activate.loading.done span svg:nth-child(3) {
             fill: #00c745;
             opacity: 1;
@@ -424,10 +463,7 @@
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s, opacity 0.4s ease 0.25s;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s, opacity 0.4s ease 0.25s, -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
         }
-        .activate.loading.done ul {
-            -webkit-transform: rotateX(180deg);
-            transform: rotateX(180deg);
-        }
+
         .activate ul {
             padding: 0;
             margin: 0;
@@ -444,6 +480,7 @@
             transition: transform .3s ease;
             transition: transform .3s ease, -webkit-transform .3s ease;
         }
+
         .activate ul li {
             --rotateX: 0deg;
             -webkit-backface-visibility: hidden;
@@ -454,12 +491,14 @@
             width: 100%;
             -webkit-transform-origin: 50% 50%;
             transform-origin: 50% 50%;
-            -webkit-transform: rotateX(var(--rotateX)) translateZ(10px);
-            transform: rotateX(var(--rotateX)) translateZ(10px);
+            -webkit-transform: rotateX(let(--rotateX)) translateZ(10px);
+            transform: rotateX(let(--rotateX)) translateZ(10px);
         }
+
         .activate ul li:nth-child(2) {
             --rotateX: -90deg;
         }
+
         .activate ul li:nth-child(3) {
             --rotateX: -180deg;
         }
@@ -477,18 +516,21 @@
                 transform: rotate(360deg);
             }
         }
+
         @-webkit-keyframes path {
             100% {
                 stroke-dashoffset: 0;
             }
         }
+
         @keyframes path {
             100% {
                 stroke-dashoffset: 0;
             }
         }
-        .swal2-popup{
-            background-color: rgba(255,255,255,0.8)!important;
+
+        .swal2-popup {
+            background-color: rgba(255, 255, 255, 0.9) !important;
         }
 
     </style>
@@ -498,10 +540,10 @@
     <div class="container">
         <div class="main-background" :style="'background-image:url('+itouch.img_url+')'"></div>
         <nav class="n-navigation float-l">
-            <span class="n-navigation-ink" id="logo"><img  class="logo" src="/static/images/icon/logo.png" alt=""></span>
+            <span class="n-navigation-ink" id="logo"><img class="logo" src="/static/images/icon/logo.png" alt=""></span>
         </nav>
         <nav class="n-navigation float-r">
-            <a class="n-navigation-ink" href="javascript:void(0)" @click = 'handleAdd'>添加</a>
+            <a class="n-navigation-ink" href="javascript:void(0)" @click='handleAdd'>添加</a>
             <a class="n-navigation-ink" href="/about">关于...</a>
         </nav>
         <div id="naruto" class="naruto-fullpage">
@@ -516,27 +558,36 @@
     </div>
     <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://itachi-1252754215.cos.ap-chengdu.myqcloud.com/sweetalert2%408.js"></script>
+    <script src="https://itachi-1252754215.cos.ap-chengdu.myqcloud.com/cos-js-sdk-v5.min.js"></script>
     <script src="https://itachi-1252754215.cos.ap-chengdu.myqcloud.com/dynamics.min.js"></script>
 </div>
 <script>
     new Vue({
-        el:"#app",
-        data:{
-            itouch:null,
-            logo : null,
-            naruto:null
+        el: "#app",
+        data: {
+            itouch: null,
+            logo: null,
+            naruto: null,
+            Region: 'ap-chengdu',
+            Bucket: 'itachi-1252754215',
+            cos: null,
+            postForm: {
+                img_url: null,
+                i_touch: null,
+                from: null
+            }
         },
         mounted() {
             this.getData();
-            setInterval(()=>{
+            setInterval(() => {
                 this.getData();
                 this.logoAnimate()
-            },8000)
+            }, 8000);
+            this.initCos()
 
         },
-        methods:{
+        methods: {
             resizeForText(self, span, text) {
                 text = (!text) ? ' ' : text;
                 span.text(text);
@@ -546,13 +597,12 @@
             ani(){
 
 
-
             },
             getData(){
-                axios.get('http://localhost/api/itouch').then(res=>{
-                    if(res.data.code === 200){
-                        this.itouch = res.data.data;
-                        this.$nextTick(()=>{
+                $.get('/api/itouch', (res) => {
+                    if (res.code === 200) {
+                        this.itouch = res.data;
+                        this.$nextTick(() => {
                             this.logo = document.querySelector('#logo');
                             this.naruto = document.querySelector("#n-text");
                             this.narutoAnimate();
@@ -562,36 +612,25 @@
                 })
             },
             async handleAdd(){
-                let that = this
-                const { value: formValues } = await Swal.fire({
+                let that = this;
+                const {value: formValues} = await Swal.fire({
                     title: '添加',
-                    html:`
+                    confirmButtonText: "添加",
+                    html: `
 <div class="inputAnimate-item">
 <div class="alertForm">
-    <input id="alertForm1" type="text" required>
-    <label for="alertForm1">一个角色</label>
-    <svg class="unlock" viewBox="0 0 12 16">
-        <path d="M6,2 C6.6,2 7.1,2.2 7.5,2.7 L8.2,3.4 L9.7,2.1 L9,1.3 C8.2,0.5 7.1,0 6,0 C3.8,0 2,1.8 2,4 L2,5.5 C0.8,6.6 0,8.2 0,10 C0,13.3 2.7,16 6,16 C9.3,16 12,13.3 12,10 C12,6.7 9.3,4 6,4 C5.3,4 4.6,4.1 4,4.4 L4,4 C4,2.9 4.9,2 6,2 Z M6,7 C7.1,7 8,7.9 8,9 C8,9.7 7.6,10.4 7,10.7 L7,13 L5,13 L5,10.7 C4.4,10.4 4,9.7 4,9 C4,7.9 4.9,7 6,7 Z"></path>
-    </svg>
-    <svg class="error" viewBox="0 0 16 14">
-        <path d="M15.216,12.529 L8.882,0.654 C8.506,-0.052 7.494,-0.052 7.117,0.654 L0.784,12.529 C0.429,13.195 0.912,14 1.667,14 L14.334,14 C15.088,14 15.571,13.195 15.216,12.529 Z M8,12 C7.448,12 7,11.552 7,11 C7,10.448 7.448,10 8,10 C8.552,10 9,10.448 9,11 C9,11.552 8.552,12 8,12 Z M9,9 L7,9 L7,5 L9,5 L9,9 Z"></path>
-    </svg>
+    <input id="from" type="text" required>
+    <label for="from">一个角色</label>
 </div>
 </div>
 <div class="inputAnimate-item">
 <div class="alertForm">
-    <input id="alertForm1" type="text" required>
-    <label for="alertForm1">一句台词</label>
-    <svg class="unlock" viewBox="0 0 12 16">
-        <path d="M6,2 C6.6,2 7.1,2.2 7.5,2.7 L8.2,3.4 L9.7,2.1 L9,1.3 C8.2,0.5 7.1,0 6,0 C3.8,0 2,1.8 2,4 L2,5.5 C0.8,6.6 0,8.2 0,10 C0,13.3 2.7,16 6,16 C9.3,16 12,13.3 12,10 C12,6.7 9.3,4 6,4 C5.3,4 4.6,4.1 4,4.4 L4,4 C4,2.9 4.9,2 6,2 Z M6,7 C7.1,7 8,7.9 8,9 C8,9.7 7.6,10.4 7,10.7 L7,13 L5,13 L5,10.7 C4.4,10.4 4,9.7 4,9 C4,7.9 4.9,7 6,7 Z"></path>
-    </svg>
-    <svg class="error" viewBox="0 0 16 14">
-        <path d="M15.216,12.529 L8.882,0.654 C8.506,-0.052 7.494,-0.052 7.117,0.654 L0.784,12.529 C0.429,13.195 0.912,14 1.667,14 L14.334,14 C15.088,14 15.571,13.195 15.216,12.529 Z M8,12 C7.448,12 7,11.552 7,11 C7,10.448 7.448,10 8,10 C8.552,10 9,10.448 9,11 C9,11.552 8.552,12 8,12 Z M9,9 L7,9 L7,5 L9,5 L9,9 Z"></path>
-    </svg>
+    <input id="i_touch" type="text" required>
+    <label for="i_touch">一句台词</label>
 </div>
 </div>
 <div class="inputAnimate-item">
-<a class="activate">
+<label class="activate" for='img-up'>
     <span>
         <svg>
             <use xlink:href="#circle">
@@ -604,11 +643,10 @@
         </svg>
     </span>
     <ul>
-        <li>选择文件</li>
-        <li>上传中...</li>
-        <li>上传完成</li>
+        <li id="up-progress">选择文件</li>
     </ul>
 </a>
+<input type="file" id='img-up' style="display: none">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="circle">
         <circle cx="8" cy="8" r="7.5"></circle>
@@ -620,42 +658,116 @@
             <path id="test" d="M4.76499011,6.7673683 L8.2641848,3.26100386 C8.61147835,2.91299871 9.15190114,2.91299871 9.49919469,3.26100386 C9.51164115,3.27347582 9.52370806,3.28637357 9.53537662,3.29967699 C9.83511755,3.64141434 9.81891834,4.17816549 9.49919469,4.49854425 L5.18121271,8.82537365 C4.94885368,9.05820878 4.58112654,9.05820878 4.34876751,8.82537365 L2.50080531,6.97362503 C2.48835885,6.96115307 2.47629194,6.94825532 2.46462338,6.93495189 C2.16488245,6.59321455 2.18108166,6.0564634 2.50080531,5.73608464 C2.84809886,5.3880795 3.38852165,5.3880795 3.7358152,5.73608464 L4.76499011,6.7673683 Z"></path>
     </symbol>
     </svg>
-</div>`
-                   ,
+</div>
+<span class="up-tip">请确保上传的图片尺寸为1920x1080</span>`
+                    ,
                     onOpen(){
-                        $('.alertForm .unlock').click(function(e) {
-                            var alertFormDiv = $(this).parent();
-                            if(alertFormDiv.children('input').val()) {
-                                alertFormDiv.addClass('false');
-                                setTimeout(function() {
-                                    alertFormDiv.removeClass('false');
-                                }, 2500);
-                            }
-                        });
-                        $('.activate').on('click touch', function(e) {
-                            var self = $(this);
-                            if(!self.hasClass('loading')) {
-                                self.addClass('loading');
-                                setTimeout(function() {
-                                    self.addClass('done');
-                                    setTimeout(function() {
-                                        //self.removeClass('loading done');
-                                    }, 1600);
-                                }, 3200);
-                            }
+                        document.getElementById('i_touch').value = that.postForm.i_touch;
+                        document.getElementById('from').value = that.postForm.from;
+                        $('.activate').on('click touch', function (e) {
+                            let self = $(this);
+                            let upP = document.querySelector("#up-progress");
+                            document.getElementById('img-up').onchange = function () {
+                                let file = this.files[0];
+                                //创建读取文件对象 读取文件
+                                let reader = new FileReader();
+                                reader.readAsDataURL(file);
+                                let img = new Image();
+                                reader.onload = function () {
+                                    img.src = reader.result;
+                                    img.onload = function () {
+                                        if (img.width !== 1920 || img.height !== 1080) {
+                                            Swal.fire({
+                                                type: 'error',
+                                                title: '图片尺寸错误',
+                                                text: '请务必上传尺寸为1920x1080的图片!',
+                                            })
+                                        } else {
+                                            if (!self.hasClass('loading')) {
+                                                self.addClass('loading');
+                                                setTimeout(function () {
+
+                                                    setTimeout(function () {
+                                                        //self.removeClass('loading done');
+                                                    }, 1600);
+                                                }, 3200);
+                                            }
+                                            that.cos.putObject({
+                                                Bucket: that.Bucket,
+                                                Region: that.Region,
+                                                Key: 'cus-upload/' + new Date().getTime() + '-' + file.name,
+                                                Body: file,
+                                                onProgress: function (progressData) {
+                                                    upP.innerHTML = '已上传:' + progressData.percent * 100 + "%";
+                                                }
+                                            }, function (err, data) {
+                                                console.log(err, data);
+                                                if (err) {
+                                                    Swal.fire({
+                                                        type: 'error',
+                                                        title: '上传失败',
+                                                        text: JSON.stringify(err),
+                                                    })
+                                                }
+                                                if (data) {
+                                                    setTimeout(function () {
+                                                        self.addClass('done');
+                                                        that.postForm.img_url = 'https://' + data.Location
+                                                    }, 200);
+                                                }
+                                            });
+                                        }
+                                    }
+                                };
+                            };
                         });
                     },
                     focusConfirm: false,
                     preConfirm: () => {
-                        return [
-                            document.getElementById('i_touch').value,
-                            document.getElementById('from').value
-                        ]
+                        let i_touch = document.getElementById('i_touch').value;
+                        let from = document.getElementById('from').value;
+                        if (i_touch && from) {
+                            that.postForm.i_touch = i_touch;
+                            that.postForm.from = from;
+                            if (!that.postForm.img_url) {
+                                Swal.fire({
+                                    type: 'error',
+                                    text: '请上传一张图片',
+                                });
+                                that.postForm.img_url = null
+                            } else {
+                                return true
+                            }
+                        } else {
+                            Swal.fire({
+                                type: 'error',
+                                text: '请务必填写所有字段',
+                            });
+                            that.postForm.img_url = null
+                        }
+                        return false
                     }
                 })
-
                 if (formValues) {
-                    Swal.fire(JSON.stringify(formValues))
+                    $.post('/api/create', that.postForm, (res) => {
+                        if (res.code === 200) {
+                            Swal.fire({
+                                type: 'success',
+                                title: '添加成功',
+                                text: '感谢您的分享！',
+                                showConfirmButton: false,
+                                timer: 5000
+                            })
+                        } else {
+                            Swal.fire({
+                                type: 'error',
+                                text: '添加失败',
+                            });
+                        }
+                        that.postForm.from = null;
+                        that.postForm.img_url = null;
+                        that.postForm.i_touch = null;
+                    })
                 }
             },
             narutoAnimate(){
@@ -686,9 +798,30 @@
                 }, {
                     type: dynamics.forceWithGravity,
                     duration: 500,
-                    friction:2000,
+                    friction: 2000,
                 })
-            }
+            },
+
+            initCos(){
+                // 初始化实例
+                this.cos = new COS({
+                    getAuthorization: function (options, callback) {
+                        // 异步获取临时密钥
+                        $.get('/api/credential', (res) => {
+                            if (res.code === 200) {
+                                let credentials = res.data.credentials;
+                                callback({
+                                    TmpSecretId: credentials.tmpSecretId,
+                                    TmpSecretKey: credentials.tmpSecretKey,
+                                    XCosSecurityToken: credentials.sessionToken,
+                                    ExpiredTime: res.data.expiredTime
+                                });
+                            }
+                        })
+                    }
+                });
+            },
+
         }
     })
 </script>

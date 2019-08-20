@@ -7,7 +7,7 @@ const resp_code = require("../util/respcodeUtil");
 const BaseResponse = require("../util/baseResponseUtil");
 const app = express();
 const iTouchService = new ITouchService();
-
+const STS = require('qcloud-cos-sts');
 let baseResponse  = new BaseResponse();
 /**
  * 根据id查找文章
@@ -20,14 +20,43 @@ app.get('/itouch', async(req, res) => {
 /**
  * 添加文章
  */
-/*app.post('/article/create', async(req, res) => {
-    let a_data = req.body;
-    if(a_data.token === req.session.token){
-        a_data.auth_id = req.session.user.id;
-        res.send(await articleService.createArticle(a_data))
-    }else {
-        res.send(baseResponse.failResp(resp_code.FAIL,"登录已过期，添加失败",'登录已过期'))
-    }
-});*/
+app.post('/create', async(req, res) => {
+    console.log(req.body)
+    res.send(await iTouchService.createITouch(req.body))
+});
+
+/**
+ * 获取临时秘钥
+ */
+app.get('/credential', async(req, res) => {
+    let policy = {
+        'version': '2.0',
+        'statement': [{
+            'action': [
+                // 简单上传
+                'name/cos:PutObject',
+                'name/cos:PostObject',
+            ],
+            'effect': 'allow',
+            'principal': {'qcs': ['*']},
+            'resource': [
+                'qcs::cos:ap-chengdu:uid/1252754215:itachi-1252754215/cus-upload/*',
+            ],
+        }],
+    };
+    STS.getCredential({
+        secretId: '',
+        secretKey: '',
+        policy: policy,
+    }, function (err, credential) {
+        if(err){
+            res.send(baseResponse.successResp(resp_code.FAIL, "服务器出错辣^_^!", err))
+        }
+        if(credential){
+            res.send(baseResponse.successResp(resp_code.SUCCESS, "获取成功", credential))
+        }
+    });
+
+});
 
 module.exports = app;
